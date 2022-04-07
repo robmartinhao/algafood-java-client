@@ -1,7 +1,7 @@
 package com.algaworks.algafood.client;
 
 import com.algaworks.algafood.client.api.ClientApiException;
-import com.algaworks.algafood.client.api.RestaurantClient;
+import com.algaworks.algafood.client.api.RestauranteClient;
 import org.springframework.web.client.RestTemplate;
 
 public class ListagemRestaurantesMain {
@@ -9,9 +9,9 @@ public class ListagemRestaurantesMain {
     public static void main(String[] args) {
 
         try {
-            RestaurantClient restaurantClient = new RestaurantClient(new RestTemplate(), "http://localhost:8080");
+            RestauranteClient restauranteClient = new RestauranteClient(new RestTemplate(), "http://localhost:8080");
 
-            restaurantClient.listar().stream()
+            restauranteClient.listar().stream()
                     .forEach(System.out::println);
         } catch (ClientApiException e) {
             if(e.getProblem() != null) {
